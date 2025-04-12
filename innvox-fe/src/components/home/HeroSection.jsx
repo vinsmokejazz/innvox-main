@@ -11,6 +11,7 @@ const HeroSection = () => {
           <div className="hero-buttons">
             <Link to="/register" className="btn btn-primary">Join Us</Link>
             {/* <Link to="/about" className="btn btn-secondary">Learn More</Link> */}
+            
           </div>
         </div>
       </div>

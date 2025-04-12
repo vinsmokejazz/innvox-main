@@ -3,70 +3,70 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-section">
-            <h3>Tech Club</h3>
-            <p>Empowering the next generation of tech innovators through education, collaboration, and hands-on experience.</p>
-            <div className="social-links">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook"></i>
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Tech Club</h3>
+            <p className="text-gray-400">Empowering the next generation of tech innovators through education, collaboration, and hands-on experience.</p>
+            <div className="flex space-x-4">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <i className="fab fa-facebook text-xl"></i>
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-twitter"></i>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <i className="fab fa-twitter text-xl"></i>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin"></i>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <i className="fab fa-linkedin text-xl"></i>
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-github"></i>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <i className="fab fa-github text-xl"></i>
               </a>
             </div>
           </div>
-          <div className="footer-section">
-            <h3>Quick Links</h3>
-            <ul className="footer-links">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/events">Events</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Quick Links</h3>
+            <ul className="space-y-2">
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/events" className="text-gray-400 hover:text-white transition-colors">Events</Link></li>
+              <li><Link to="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
-          <div className="footer-section">
-            <h3>Programs</h3>
-            <ul className="footer-links">
-              <li><Link to="/programs/web-dev">Web Development</Link></li>
-              <li><Link to="/programs/ai-ml">AI & Machine Learning</Link></li>
-              <li><Link to="/programs/cybersecurity">Cybersecurity</Link></li>
-              <li><Link to="/programs/data-science">Data Science</Link></li>
-              <li><Link to="/programs/mobile-dev">Mobile Development</Link></li>
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Programs</h3>
+            <ul className="space-y-2">
+              <li><Link to="/programs/web-dev" className="text-gray-400 hover:text-white transition-colors">Web Development</Link></li>
+              <li><Link to="/programs/ai-ml" className="text-gray-400 hover:text-white transition-colors">AI & Machine Learning</Link></li>
+              <li><Link to="/programs/cybersecurity" className="text-gray-400 hover:text-white transition-colors">Cybersecurity</Link></li>
+              <li><Link to="/programs/data-science" className="text-gray-400 hover:text-white transition-colors">Data Science</Link></li>
+              <li><Link to="/programs/mobile-dev" className="text-gray-400 hover:text-white transition-colors">Mobile Development</Link></li>
             </ul>
           </div>
-          <div className="footer-section">
-            <h3>Contact Info</h3>
-            <ul className="contact-info">
-              <li>
-                <i className="fas fa-map-marker-alt"></i>
-                <span>123 Tech Street, Innovation Hub<br />City, State 12345</span>
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Contact Info</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start space-x-3">
+                <i className="fas fa-map-marker-alt text-gray-400 mt-1"></i>
+                <span className="text-gray-400">123 Tech Street, Innovation Hub<br />City, State 12345</span>
               </li>
-              <li>
-                <i className="fas fa-phone"></i>
-                <a href="tel:+1234567890">(123) 456-7890</a>
+              <li className="flex items-center space-x-3">
+                <i className="fas fa-phone text-gray-400"></i>
+                <a href="tel:+1234567890" className="text-gray-400 hover:text-white transition-colors">(123) 456-7890</a>
               </li>
-              <li>
-                <i className="fas fa-envelope"></i>
-                <a href="mailto:info@techclub.com">info@techclub.com</a>
+              <li className="flex items-center space-x-3">
+                <i className="fas fa-envelope text-gray-400"></i>
+                <a href="mailto:info@techclub.com" className="text-gray-400 hover:text-white transition-colors">info@techclub.com</a>
               </li>
             </ul>
           </div>
         </div>
-        <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Tech Club. All rights reserved.</p>
-          <div className="footer-legal">
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/terms-of-service">Terms of Service</Link>
+        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-gray-400">&copy; {new Date().getFullYear()} Tech Club. All rights reserved.</p>
+          <div className="flex space-x-6">
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
