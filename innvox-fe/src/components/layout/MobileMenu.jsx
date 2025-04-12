@@ -10,7 +10,7 @@ const MobileMenu = () => {
   };
 
   // Consistent with header's navLinkClass and dropdown styles
-  const mobileLinkClass = "text-white text-lg hover:bg-gray-900 hover:underline px-4 py-2 rounded-md transition-all duration-200";
+  const mobileLinkClass = "text-white text-lg hover:bg-gray-900  hover:underline text-shadow-glow px-4 py-2 rounded-md transition-all duration-200";
 
   return (
     <div className="md:hidden">

@@ -5,7 +5,7 @@ import logo from '../../assets/invx.png';
 
 const Header = () => {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
-  const navLinkClass = "text-white text-lg hover:bg-gray-900 hover:underline px-3 py-2 rounded-md transition-all duration-200";
+  const navLinkClass = "text-white text-lg hover:bg-gray-900 hover:underline px-3 py-2 rounded-md transition-all duration-200 hover:text-shadow-glow";
 
   return (
     <header className="fixed top-0 left-0 right-0 h-16 bg-black dark:bg-gray-900 shadow-sm z-50">
@@ -52,41 +52,41 @@ const Header = () => {
                   <div className="py-1">
                     <Link
                       to="/gallery"
-                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline hover:text-shadow-glow"
                     >
                       Gallery
                     </Link>
                     <Link
                       to="/team"
-                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline hover:text-shadow-glow"
                     >
                       Our Team
                     </Link>
                     <Link
                       to="/projects"
-                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline hover:text-shadow-glow"
                     >
                       Projects
                     </Link>
                     <Link
                       to="/resources"
-                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline hover:text-shadow-glow"
                     >
                       Resources
                     </Link>
                     <Link
-                      to="/CommunityPage"
-                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                      to="/faq"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline hover:text-shadow-glow"
                     >
-                      Community
+                      FAQ
                     </Link>
                   </div>
                 </div>
               )}
             </div>
 
-            <Link
-              to="/login"
+            <Link 
+              to="/login" 
               className="inline-flex items-center justify-center rounded-md text-md font-medium ring-offset-background 
   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
   disabled:pointer-events-none disabled:opacity-50 bg-white text-black h-10 px-4 py-2 ml-4
