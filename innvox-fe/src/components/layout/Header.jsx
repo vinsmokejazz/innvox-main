@@ -1,12 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MobileMenu from './MobileMenu';
 import logo from '../../assets/invx.png';
 
 const Header = () => {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const timeoutRef = useRef(null);
   const navLinkClass = "text-white text-lg hover:bg-gray-900 hover:underline px-3 py-2 rounded-md transition-all duration-200 hover:text-shadow-glow";
-
+  
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        // Clear any existing timeout
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+        // Set a timeout to close the dropdown after a delay
+        timeoutRef.current = setTimeout(() => {
+          setIsMoreOpen(false);
+        }, 300);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      // Clear timeout on cleanup
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+  
+  // Handle mouse leave for dropdown
+  const handleMouseLeave = () => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    // Set a timeout to close the dropdown after a delay
+    timeoutRef.current = setTimeout(() => {
+      setIsMoreOpen(false);
+    }, 300);
+  };
+  
+  // Handle mouse enter to cancel closing
+  const handleMouseEnter = () => {
+    // Clear any existing timeout to prevent closing
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+  
   return (
     <header className="fixed top-0 left-0 right-0 h-16 bg-black dark:bg-gray-900 shadow-sm z-50">
       <div className="container h-full">
@@ -31,7 +79,12 @@ const Header = () => {
             </Link>
 
             {/* More Dropdown */}
-            <div className="relative">
+            <div 
+              className="relative" 
+              ref={dropdownRef} 
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleMouseEnter}
+            >
               <button
                 onClick={() => setIsMoreOpen(!isMoreOpen)}
                 className={`${navLinkClass} flex items-center`}
