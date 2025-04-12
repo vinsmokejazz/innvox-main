@@ -3,7 +3,76 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --primary-color: #6c63ff;
+    --secondary-color: #4a45b1;
+    --background-color: #000;
+    --text-color: #fff;
+    --text-secondary: #888;
+    --border-color: #333;
+    --card-bg: #111;
+    --hover-color: #222;
+  }
+
   html {
     @apply antialiased;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .header {
+    @apply relative h-16 bg-white shadow-sm;
+  }
+
+  .header-content {
+    @apply h-full flex items-center justify-between;
+  }
+
+  .hero-section {
+    @apply py-20 bg-white;
+  }
+
+  .hero-content {
+    @apply max-w-3xl mx-auto text-center;
+  }
+
+  .hero-content h1 {
+    @apply text-4xl font-bold mb-4 text-gray-900;
+  }
+
+  .hero-content p {
+    @apply text-xl text-gray-600 mb-8;
+  }
+
+  .hero-buttons {
+    @apply flex gap-4 justify-center;
+  }
+
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+  }
+
+  .main-content {
+    @apply min-h-screen pt-16;
+  }
+
+  .app {
+    @apply relative min-h-screen;
   }
 }

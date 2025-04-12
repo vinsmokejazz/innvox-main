@@ -2,16 +2,13 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="header">
-      <div className="video-background">
-        <video autoPlay loop muted playsInline>
-          <source src="/tech-background.mp4" type="video/mp4" />
-        </video>
-        <div className="video-overlay"></div>
-      </div>
-      <div className="container">
-        <div className="header-content">
-          {/* Content can be added here if needed */}
+    <header className="fixed top-0 left-0 right-0 h-16 bg-white shadow-sm z-50">
+      <div className="container h-full">
+        <div className="h-full flex items-center justify-between">
+          <div className="text-xl font-bold text-gray-900">Tech Club</div>
+          <div className="flex items-center space-x-4">
+            <button className="btn btn-primary">Join Us</button>
+          </div>
         </div>
       </div>
     </header>

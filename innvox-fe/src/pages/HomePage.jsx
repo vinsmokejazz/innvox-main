@@ -6,11 +6,11 @@ import CtaSection from '../components/home/CtaSection';
 
 const HomePage = () => {
   return (
-    <div className="home-page">
-      <HeroSection /><br></br>
-      <AboutSection /><br></br>
-      <FeaturesSection /><br></br>
-      <CtaSection /><br></br>
+    <div className="space-y-20 py-20">
+      <HeroSection />
+      <AboutSection />
+      <FeaturesSection />
+      <CtaSection />
     </div>
   );
 };
