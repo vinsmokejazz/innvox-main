@@ -7,7 +7,6 @@ import { NotificationProvider } from './context/NotificationContext.jsx';
 // Layout components
 import Header from './components/layout/Header.jsx';
 import Footer from './components/layout/Footer';
-import Navbar from './components/layout/Navbar';
 import FloatingElements from './components/layout/FloatingElements';
 
 // Pages
@@ -33,7 +32,6 @@ function App() {
           <Router>
             <div className="app">
               <Header />
-              <Navbar />
               <main className="main-content">
                 <Routes>
                   <Route path="/" element={<HomePage />} />
