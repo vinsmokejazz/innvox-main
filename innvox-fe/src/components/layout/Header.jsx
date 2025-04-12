@@ -6,7 +6,7 @@ import logo from '../../assets/invx.png';
 const Header = () => {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const navLinkClass = "text-white text-lg hover:bg-gray-900 hover:underline px-3 py-2 rounded-md transition-all duration-200";
-  
+
   return (
     <header className="fixed top-0 left-0 right-0 h-16 bg-black dark:bg-gray-900 shadow-sm z-50">
       <div className="container h-full">
@@ -14,7 +14,7 @@ const Header = () => {
           <Link to="/" className="flex items-center">
             <img src={logo} alt="Innvox Logo" className="h-12 w-full" />
           </Link>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-2">
             <Link to="/about" className={navLinkClass}>
@@ -29,7 +29,7 @@ const Header = () => {
             <Link to="/contact" className={navLinkClass}>
               Contact
             </Link>
-            
+
             {/* More Dropdown */}
             <div className="relative">
               <button
@@ -46,7 +46,7 @@ const Header = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              
+
               {isMoreOpen && (
                 <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-black ring-1 ring-black ring-opacity-5">
                   <div className="py-1">
@@ -85,11 +85,12 @@ const Header = () => {
               )}
             </div>
 
-            <Link 
-              to="/login" 
+            <Link
+              to="/login"
               className="inline-flex items-center justify-center rounded-md text-md font-medium ring-offset-background 
-              transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
-               disabled:pointer-events-none disabled:opacity-50 bg-white text-black hover:shadow-mlg shadow-white  h-10 px-4 py-2 ml-4"
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+  disabled:pointer-events-none disabled:opacity-50 bg-white text-black h-10 px-4 py-2 ml-4
+  transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.7)]"
             >
               Login
             </Link>
