@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/sf-ui-display');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -60,10 +62,12 @@
 
   html {
     @apply antialiased;
+    font-family: 'SF UI Display', sans-serif;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'SF UI Display', sans-serif;
   }
 }
 
@@ -114,7 +118,7 @@
   }
 
   .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-700;
+    @apply bg-white text-white hover:bg-blue-700;
   }
 
   .btn-secondary {

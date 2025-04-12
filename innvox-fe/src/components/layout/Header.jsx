@@ -1,45 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MobileMenu from './MobileMenu';
+import logo from '../../assets/invx.png';
 
 const Header = () => {
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const navLinkClass = "text-white text-lg hover:bg-gray-900 hover:underline px-3 py-2 rounded-md transition-all duration-200";
+  
   return (
     <header className="fixed top-0 left-0 right-0 h-16 bg-black dark:bg-gray-900 shadow-sm z-50">
       <div className="container h-full">
         <div className="h-full flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold text-gray-900 dark:text-white">
-            Tech Club
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Innvox Logo" className="h-12 w-full" />
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/about"
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-            >
+          <nav className="hidden md:flex items-center space-x-2">
+            <Link to="/about" className={navLinkClass}>
               About
             </Link>
-            <Link
-              to="/events"
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-            >
+            <Link to="/events" className={navLinkClass}>
               Events
             </Link>
-            <Link
-              to="/blog"
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-            >
+            <Link to="/blog" className={navLinkClass}>
               Blog
             </Link>
-            <Link
-              to="/contact"
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-            >
+            <Link to="/contact" className={navLinkClass}>
               Contact
             </Link>
-            <Link
-              to="/login"
-              className="text-primary hover:text-primary/80 transition-colors"
+            
+            {/* More Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsMoreOpen(!isMoreOpen)}
+                className={`${navLinkClass} flex items-center`}
+              >
+                More
+                <svg
+                  className={`ml-1 h-4 w-4 transition-transform duration-200 ${isMoreOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {isMoreOpen && (
+                <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-black ring-1 ring-black ring-opacity-5">
+                  <div className="py-1">
+                    <Link
+                      to="/gallery"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                    >
+                      Gallery
+                    </Link>
+                    <Link
+                      to="/team"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                    >
+                      Our Team
+                    </Link>
+                    <Link
+                      to="/projects"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                    >
+                      Projects
+                    </Link>
+                    <Link
+                      to="/resources"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                    >
+                      Resources
+                    </Link>
+                    <Link
+                      to="/CommunityPage"
+                      className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline"
+                    >
+                      Community
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Link 
+              to="/login" 
+              className="inline-flex items-center justify-center rounded-md text-md font-medium ring-offset-background 
+              transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+               disabled:pointer-events-none disabled:opacity-50 bg-white text-black hover:shadow-mlg shadow-white  h-10 px-4 py-2 ml-4"
             >
               Login
             </Link>
