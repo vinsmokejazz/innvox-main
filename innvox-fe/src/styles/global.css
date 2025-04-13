@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import SF UI Display font */
+@import url('https://fonts.cdnfonts.com/css/sf-ui-display');
+
 /* SF UI Display Font */
 @font-face {
   font-family: 'SF UI Display';

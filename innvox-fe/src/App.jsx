@@ -20,6 +20,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
+import ContactPage from './pages/ContactPage';
 
 // Styles
 import './styles/global.css';
@@ -30,9 +31,9 @@ function App() {
       <BlogProvider>
         <NotificationProvider>
           <Router>
-            <div className="app">
+            <div className="app min-h-screen flex flex-col bg-black text-white">
               <Header />
-              <main className="main-content">
+              <main className="flex-grow">
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/blog" element={<BlogPage />} />
@@ -43,6 +44,7 @@ function App() {
                   <Route path="/login" element={<LoginPage />} />
                   <Route path="/register" element={<RegisterPage />} />
                   <Route path="/profile" element={<ProfilePage />} />
+                  <Route path="/contact" element={<ContactPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Routes>
               </main>
