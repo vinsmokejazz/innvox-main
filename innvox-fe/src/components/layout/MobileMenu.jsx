@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const timeoutRef = useRef(null);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -57,6 +59,19 @@ const MobileMenu = () => {
     }
   };
 
+  //handle about click to scroll to about section
+  const handleAboutClick = (e) => {
+    if (location.pathname === '/') {
+      // If already on homepage, prevent default and scroll
+      e.preventDefault();
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  
+  };
+
   // Consistent with header's navLinkClass and dropdown styles
   const mobileLinkClass = "text-white text-lg hover:bg-gray-900 hover:underline text-shadow-glow px-4 py-2 rounded-md transition-all duration-200";
 
@@ -78,9 +93,9 @@ const MobileMenu = () => {
           <div className="container mx-auto px-4">
             <nav className="flex flex-col space-y-2">
               <Link
-                to="/about"
+                to="/#about" 
                 className={mobileLinkClass}
-                onClick={() => setIsOpen(false)}
+                onClick={handleAboutClick}
               >
                 About
               </Link>
