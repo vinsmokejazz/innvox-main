@@ -227,7 +227,7 @@ const HeroSection = () => {
           </div>
           
           <motion.p 
-            className="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto"
+            className="text-xl md:text-3xl text-gray-300 mb-10 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.2, duration: 0.6 }}
@@ -242,12 +242,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.5, duration: 0.6 }}
           >
-            <Link to="/register" className="  px-8 py-4 text-lg font-medium rounded-md transition-all duration-300 bg-primary text-white hover:bg-primary/90 hover:shadow-glow">
-              Join Now
-            </Link>
-            <Link to="/projects" className="btn-secondary px-8 py-4 text-lg font-medium rounded-md transition-all duration-300 bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50">
-              Explore Projects
-            </Link>
+            
           </motion.div>
           
         </div>
