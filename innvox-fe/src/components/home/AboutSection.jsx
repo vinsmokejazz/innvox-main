@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AboutSection = () => {
   return (
-    <section className="section about-section">
+    <section id="about" className="section about-section">
       <div className="container">
         <div className="about-content">
           <div className="about-text animate-right">

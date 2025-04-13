@@ -2,8 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MobileMenu from './MobileMenu';
 import logo from '../../assets/invx.png';
+import { useLocation,useNavigate } from 'react-router-dom';
 
 const Header = () => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const dropdownRef = useRef(null);
   const timeoutRef = useRef(null);
@@ -32,7 +37,21 @@ const Header = () => {
         clearTimeout(timeoutRef.current);
       }
     };
+   
   }, []);
+  
+//handle about click to scroll to about section
+  const handleAboutClick = (e) => {
+    if (location.pathname === '/') {
+      // If already on homepage, prevent default and scroll
+      e.preventDefault();
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  
+  };
   
   // Handle mouse leave for dropdown
   const handleMouseLeave = () => {
@@ -65,7 +84,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-2">
-            <Link to="/about" className={navLinkClass}>
+            <Link to="/#about" onClick={handleAboutClick} className={navLinkClass}>
               About
             </Link>
             <Link to="/events" className={navLinkClass}>
