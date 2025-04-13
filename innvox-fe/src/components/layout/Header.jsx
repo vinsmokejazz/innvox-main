@@ -128,10 +128,10 @@ const Header = () => {
                       Resources
                     </Link>
                     <Link
-                      to="/faq"
+                      to="/community"
                       className="block px-4 py-2 text-white hover:bg-gray-900 hover:underline hover:text-shadow-glow"
                     >
-                      FAQ
+                      Community
                     </Link>
                   </div>
                 </div>
