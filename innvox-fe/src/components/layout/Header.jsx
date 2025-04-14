@@ -90,9 +90,9 @@ const Header = () => {
             <Link to="/events" className={navLinkClass}>
               Events
             </Link>
-            <Link to="/blog" className={navLinkClass}>
+            {/* <Link to="/blog" className={navLinkClass}>
               Blog
-            </Link>
+            </Link> */}
             <Link to="/contact" className={navLinkClass}>
               Contact
             </Link>

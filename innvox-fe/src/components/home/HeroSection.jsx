@@ -222,7 +222,7 @@ const HeroSection = () => {
           variants={taglineVariants}
           initial="hidden"
           animate="visible"
-          className="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto px-4"
+          className="text-xl md:text-2xl text-gray-300 mb-1 max-w-3xl mx-auto px-4"
           style={{ fontFamily: "'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif" }}
         >
           Break Boundaries. Define the Future

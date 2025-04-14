@@ -1,9 +1,9 @@
+/* Import SF UI Display font */
+@import url('https://fonts.cdnfonts.com/css/sf-ui-display');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import SF UI Display font */
-@import url('https://fonts.cdnfonts.com/css/sf-ui-display');
 
 /* Global smooth scrolling */
 html {
@@ -1745,4 +1745,3 @@ input, textarea {
     padding: 0 10px;
   }
 } 
-
