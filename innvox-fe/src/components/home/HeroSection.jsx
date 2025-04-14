@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { SparklesCore } from "../ui/sparkles";
 import { motion } from 'framer-motion';
 
 const HeroSection = () => {
@@ -13,17 +13,14 @@ const HeroSection = () => {
     let animationFrameId;
     let particles = [];
     
-    // Set canvas size
     const resizeCanvas = () => {
       canvas.width = containerRef.current.offsetWidth;
       canvas.height = containerRef.current.offsetHeight;
       initParticles();
     };
 
-    // Create particles 
     const initParticles = () => {
       particles = [];
-      
       const numberOfParticles = Math.floor(canvas.width * canvas.height / 9000); 
       
       for (let i = 0; i < numberOfParticles; i++) {
@@ -40,19 +37,16 @@ const HeroSection = () => {
       }
     };
 
-    // Draw particles
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach(particle => {
         ctx.shadowBlur = 15;
         ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
-        
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
         ctx.fill();
-        
         ctx.shadowBlur = 0;
         
         particle.x += particle.velocity.x;
@@ -89,31 +83,26 @@ const HeroSection = () => {
     resizeCanvas();
     render();
     
-    // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
 
-  // Text animation variants with flickering effect
+  // Animation variants
   const letterVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 50,
-    },
+    hidden: { opacity: 0, y: 50 },
     visible: (i) => ({ 
       opacity: 1,
       y: 0,
       transition: {
         delay: i * 0.1,
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1]
       }
     })
   };
 
-  // Flickering animation for each letter except X
   const flickerVariants = {
     initial: { 
       opacity: 0,
@@ -139,7 +128,6 @@ const HeroSection = () => {
     })
   };
 
-  // X highlight effect 
   const xHighlightVariants = {
     initial: {
       opacity: 0,
@@ -156,99 +144,110 @@ const HeroSection = () => {
     }
   };
 
-  // Split text into individual characters for letter animation
+  const taglineVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 2.5,
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   const title = "INИVOX";
   const xLetter = "X";
 
-  // Add Montserrat font
   useEffect(() => {
     const montserratLink = document.createElement('link');
     montserratLink.rel = 'stylesheet';
     montserratLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap';
     document.head.appendChild(montserratLink);
     
-    return () => {
-      document.head.removeChild(montserratLink);
-    };
+    return () => document.head.removeChild(montserratLink);
   }, []);
 
   return (
-    <section className="hero-wrapper" ref={containerRef}>
-      <canvas ref={canvasRef} className="hero-canvas"></canvas>
-      <div className="hero-overlay"></div>
-      
-      <div className="container relative z-10 flex flex-col items-center justify-center h-full">
-        <div className="hero-content text-center">
-          <div className="text-center overflow-hidden mb-6">
-            <div className="flex justify-center items-center">
-              {/* Animated INNVO letters with flicker */}
-              {title.slice(0, -1).split("").map((letter, index) => (
-                <motion.span
-                  key={index}
-                  custom={index}
-                  variants={letterVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="inline-block text-8xl md:text-9xl lg:text-[11rem] font-extrabold text-white tracking-tighter"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}
-                >
-                  <motion.span
-                    custom={index}
-                    variants={flickerVariants}
-                    initial="initial"
-                    animate="animate"
-                    className="inline-block"
-                  >
-                    {letter}
-                  </motion.span>
-                </motion.span>
-              ))}
-              
-              {/* Special X with highlight effect */}
-              <motion.div
-                custom={title.length - 1}
+    <section className="hero-wrapper relative w-full" ref={containerRef}>
+      <canvas ref={canvasRef} className="hero-canvas absolute inset-0 w-full h-full" />
+      <div className="hero-overlay absolute inset-0 bg-black/50" />
+
+      <div className="h-[40rem] w-full flex flex-col items-center justify-center overflow-hidden rounded-md relative z-10">
+        <div className="text-center overflow-hidden mb-6">
+          <div className="flex justify-center items-center">
+            {title.slice(0, -1).split("").map((letter, index) => (
+              <motion.span
+                key={index}
+                custom={index}
                 variants={letterVariants}
                 initial="hidden"
                 animate="visible"
-                className="inline-block text-8xl md:text-9xl lg:text-[11rem] font-extrabold tracking-tighter"
+                className="inline-block text-8xl md:text-9xl lg:text-[11rem] font-extrabold text-white tracking-tighter"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
                 <motion.span
-                  variants={xHighlightVariants}
+                  custom={index}
+                  variants={flickerVariants}
                   initial="initial"
                   animate="animate"
-                  className="inline-block"
-                  style={{ color: "#39FF14" }} // Neon green color
                 >
-                  {xLetter}
+                  {letter}
                 </motion.span>
-              </motion.div>
-            </div>
-          </div>
-          
-          <motion.p 
-            className="text-xl md:text-3xl text-gray-300 mb-10 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.2, duration: 0.6 }}
-            style={{ fontFamily: "'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif" }}
-          >
-            Break Boundaries. Define the Future
-          </motion.p>
-          
-          <motion.div 
-            className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.5, duration: 0.6 }}
-          >
+              </motion.span>
+            ))}
             
-          </motion.div>
-          
+            <motion.div
+              custom={title.length - 1}
+              variants={letterVariants}
+              initial="hidden"
+              animate="visible"
+              className="inline-block text-8xl md:text-9xl lg:text-[11rem] font-extrabold tracking-tighter"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              <motion.span
+                variants={xHighlightVariants}
+                initial="initial"
+                animate="animate"
+                style={{ color: "#39FF14" }}
+              >
+                {xLetter}
+              </motion.span>
+            </motion.div>
+          </div>
+        </div>
+
+        <motion.p
+          variants={taglineVariants}
+          initial="hidden"
+          animate="visible"
+          className="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto px-4"
+          style={{ fontFamily: "'SF UI Display', -apple-system, BlinkMacSystemFont, sans-serif" }}
+        >
+          Break Boundaries. Define the Future
+        </motion.p>
+
+        <div className="w-full max-w-[40rem] h-40 relative mt-8">
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+
+          <SparklesCore
+            background="transparent"
+            minSize={0.4}
+            maxSize={1}
+            particleDensity={1200}
+            className="w-full h-full"
+            particleColor="#FFFFFF"
+          />
+
+          <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]" />
         </div>
       </div>
     </section>
   );
 };
 
-export default HeroSection; 
+export default HeroSection;

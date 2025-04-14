@@ -119,7 +119,7 @@ const AboutSection = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.5 }}
         >
           <motion.div 
             className="about-text"
