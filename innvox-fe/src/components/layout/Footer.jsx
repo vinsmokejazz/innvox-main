@@ -30,7 +30,6 @@ const Footer = () => {
               <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/events" className="text-gray-400 hover:text-white transition-colors">Events</Link></li>
-              <li><Link to="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
               <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -40,8 +39,7 @@ const Footer = () => {
               <li><Link to="/programs/web-dev" className="text-gray-400 hover:text-white transition-colors">Web Development</Link></li>
               <li><Link to="/programs/ai-ml" className="text-gray-400 hover:text-white transition-colors">AI & Machine Learning</Link></li>
               <li><Link to="/programs/cybersecurity" className="text-gray-400 hover:text-white transition-colors">Cybersecurity</Link></li>
-              <li><Link to="/programs/data-science" className="text-gray-400 hover:text-white transition-colors">Data Science</Link></li>
-              <li><Link to="/programs/mobile-dev" className="text-gray-400 hover:text-white transition-colors">Mobile Development</Link></li>
+              <li><Link to="/programs/data-science" className="text-gray-400 hover:text-white transition-colors">Blockchain</Link></li>
             </ul>
           </div>
           <div className="space-y-4">
@@ -49,15 +47,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <i className="fas fa-map-marker-alt text-gray-400 mt-1"></i>
-                <span className="text-gray-400">123 Tech Street, Innovation Hub<br />City, State 12345</span>
+                <span className="text-gray-400">INNVOX Club , KSIT<br />Bengaluru</span>
               </li>
               <li className="flex items-center space-x-3">
                 <i className="fas fa-phone text-gray-400"></i>
-                <a href="tel:+1234567890" className="text-gray-400 hover:text-white transition-colors">(123) 456-7890</a>
+                <a href="tel:+1234567890" className="text-gray-400 hover:text-white transition-colors">(+91) 99999 99999</a>
               </li>
               <li className="flex items-center space-x-3">
                 <i className="fas fa-envelope text-gray-400"></i>
-                <a href="mailto:info@techclub.com" className="text-gray-400 hover:text-white transition-colors">info@techclub.com</a>
+                <a href="mailto:info@techclub.com" className="text-gray-400 hover:text-white transition-colors">innvox_ksit@gmail.com</a>
               </li>
             </ul>
           </div>

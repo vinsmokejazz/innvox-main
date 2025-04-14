@@ -260,6 +260,15 @@ html {
     box-shadow: 0 0 30px rgba(108, 99, 255, 0.7);
   }
 
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md text-md font-medium
+           bg-white text-black h-10 px-4 py-2 ml-4 transition-all duration-300
+           ring-offset-background focus-visible:outline-none focus-visible:ring-2 
+           focus-visible:ring-ring focus-visible:ring-offset-2
+           disabled:pointer-events-none disabled:opacity-50
+           hover:shadow-secondary-hover transform-gpu;
+  }
+
   .hero-section {
     @apply py-20 bg-gray-900;
   }

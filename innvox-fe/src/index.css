@@ -125,7 +125,7 @@
   }
 
   .btn-primary {
-    @apply bg-white text-black hover:bg-[#39FF14];
+    @apply bg-white text-black ;
   }
 
   .btn-secondary {
