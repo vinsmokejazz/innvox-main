@@ -1316,10 +1316,11 @@ input, textarea {
 .glow-text {
   @apply text-3xl md:text-4xl mb-6 font-bold;
   font-family: 'SF UI Display', sans-serif;
+
 }
 
 .highlight-text {
-  @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 inline-block;
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-white inline-block;
   text-shadow: 0 0 15px rgba(59, 130, 246, 0.5),
                0 0 30px rgba(59, 130, 246, 0.3),
                0 0 5px rgba(99, 102, 241, 0.2);

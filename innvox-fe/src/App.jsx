@@ -14,16 +14,17 @@ import HomePage from './pages/HomePage';
 import BlogPage from './pages/BlogPage';
 import SingleBlogPage from './pages/SingleBlogPage';
 import EventsPage from './pages/EventsPage';
-import MembersPage from './pages/MembersPage';
 import CommunityPage from './pages/CommunityPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import NotFoundPage from './pages/NotFoundPage';
 import ContactPage from './pages/ContactPage';
+import TeamPage from './pages/TeamPage.jsx';
 
 // Styles
 import './styles/global.css';
+
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
                   <Route path="/blog" element={<BlogPage />} />
                   <Route path="/blog/:id" element={<SingleBlogPage />} />
                   <Route path="/events" element={<EventsPage />} />
-                  <Route path="/members" element={<MembersPage />} />
+                  <Route path="/team" element={<TeamPage />} />
                   <Route path="/community" element={<CommunityPage />} />
                   <Route path="/login" element={<LoginPage />} />
                   <Route path="/register" element={<RegisterPage />} />

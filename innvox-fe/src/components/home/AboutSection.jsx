@@ -65,7 +65,7 @@ const ImprovedCountUp = ({ end, duration }) => {
     
     const updateCount = (timestamp) => {
       if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      const progress = Math.min((timestamp - startTime) / (duration * 1500), 1);
       
       // Apply easing function to make it faster at start and slower toward end
       const easedProgress = easeOutExpo(progress);
@@ -119,13 +119,13 @@ const AboutSection = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
         >
           <motion.div 
             className="about-text"
             initial={{ x: -50, opacity: 0 }}
             animate={isInView ? { x: 0, opacity: 1 } : { x: -50, opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h2 className="glow-text">
               About <span className="highlight-text">INNVOX</span>
@@ -149,7 +149,7 @@ const AboutSection = () => {
               animate={isInView ? "visible" : "hidden"}
             >
               Our club provides a platform for students to explore, learn, and grow in various technical domains 
-              including software development, artificial intelligence, cybersecurity, and more. Through workshops, 
+              including Software development, Artificial Intelligence, Web development, Blockchain and more. Through workshops, 
               hackathons, and collaborative projects, we aim to bridge the gap between academic knowledge and 
               real-world applications.
             </motion.p>
@@ -173,7 +173,7 @@ const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <CountingNumber value="10+" label="Technical Domains" />
-            <CountingNumber value="4+" label="Monthly Workshops" />
+            <CountingNumber value="3+" label="Monthly Workshops" />
             <CountingNumber value="24/7" label="Learning Support" />
           </motion.div>
         </motion.div>
