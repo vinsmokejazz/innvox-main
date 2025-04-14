@@ -107,11 +107,11 @@ const MobileMenu = () => {
                 Events
               </Link>
               <Link
-                to="/blog"
+                to="/community"
                 className={mobileLinkClass}
                 onClick={() => setIsOpen(false)}
               >
-                Blog
+                Community
               </Link>
               <Link
                 to="/contact"

@@ -51,7 +51,7 @@ function App() {
                     <Route path="*" element={<NotFoundPage />} />
                   </Routes>
                 </main>
-                <FloatingElements />
+                {/* <FloatingElements /> */}
                 <Footer />
               </div>
             </Router>
