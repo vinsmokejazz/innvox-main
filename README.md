@@ -1,8 +1,18 @@
-to setup and run on your local machine
+# Innvox Project
 
-#1-frontend
-cd innvox-fe
-npm install && npm run dev
+A full-stack application with a React frontend and a backend (in development).
 
-#2-backend 
-still in progress
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm (v7 or higher)
+- Git (for cloning the repository)
+
+## Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/innvox-project.git
+   cd innvox-project
+   npm run dev
+   ```
