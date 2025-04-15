@@ -1,4 +1,4 @@
-# Innvox Project
+# Innvox 
 
 A full-stack application with a React frontend and a backend (in development).
 
